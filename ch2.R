@@ -2,6 +2,7 @@ library(DBI)
 library(RSQLite)
 library(ggplot2)
 library(plyr)
+library(reshape2)
 
 db <- dbConnect(drv = SQLite(), dbname = "~/Github/rlanguage/thinkstats/db/thinstats.db")
 FemalePreg2002 <- dbReadTable(db, "FemalePreg2002")
