@@ -12,14 +12,18 @@ FirstChild <- cbind(group="First Child", FirstChild)
 OtherChild <- subset(FemalePreg2002, birthord>1, c("caseid","prglength"))
 OtherChild <- cbind(group="Others", OtherChild)
 
+# prepare data for barchart
 FirstChild <- melt(FirstChild, id=c("group", "prglength"), na.rm = T)
 OtherChild <- melt(OtherChild, id=c("group","prglength"), na.rm = T)
 
+# bind row data
 data <- rbind(FirstChild, OtherChild)
 
+# set to factor for filling different group in barchart
 Factor <- as.factor(data$group)
 
+## ggplot2
 ggplot(data = data) +
-  geom_bar(aes(x = prglength, fill=Factor), position = "dodge") +
+  geom_bar(aes(x = prglength, fill=Factor), position = "dodge", binwidth = 1) +
   xlab("Pregnant Length") +
   ylab("Frequency")
