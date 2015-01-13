@@ -25,5 +25,6 @@ Factor <- as.factor(data$group)
 ## ggplot2
 ggplot(data = data) +
   geom_bar(aes(x = prglength, fill=Factor), position = "dodge", binwidth = 1) +
+  ggtitle("Frequency of Pregnant Length") +
   xlab("Pregnant Length") +
   ylab("Frequency")
