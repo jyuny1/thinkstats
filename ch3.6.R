@@ -56,6 +56,7 @@ OtherChild.cdf <- ddply(.data = OtherChild,
 # rbind
 Child.CDF <- rbind(FirstChild.cdf, OtherChild.cdf)
 
+#draw CDF charts
 ggplot(Child.CDF, aes(x=totalWeight,y=cdf, colour=group)) + 
   geom_step(size=1) + 
   xlim(0, 250)+
